@@ -41,17 +41,17 @@ public class NotificationUtils {
         //触发的intent
         builder.setContentIntent(intent);
         //这边设置颜色，可以给5.0及以上版本smallIcon设置背景色
-        builder.setColor(0x00515151);
+        builder.setColor(0x00558961);
         //小图标
         builder.setSmallIcon(R.mipmap.ic_notification);
         //大图标(这边同时设置了小图标跟大图标，在5.0及以上版本通知栏里面的样式会有所不同)
-//        builder.setLargeIcon(decodeResource(context.getResources(), R.mipmap.icon));
+        //builder.setLargeIcon(decodeResource(context.getResources(), R.mipmap.icon));
         //设置该条通知时间
-        builder.setWhen(System.currentTimeMillis());
+        //builder.setWhen(System.currentTimeMillis());
         //设置为true，点击该条通知会自动删除，false时只能通过滑动来删除
-        builder.setAutoCancel(true);
+        //builder.setAutoCancel(true);
         //设置优先级，级别高的排在前面
-        builder.setPriority(NotificationCompat.PRIORITY_MAX);
+        //builder.setPriority(NotificationCompat.PRIORITY_MAX);
         int defaults = 0;
         if (sound) {
             defaults |= Notification.DEFAULT_SOUND;
@@ -75,12 +75,9 @@ public class NotificationUtils {
      * @param title
      * @param content
      * @param intent
-     * @param sound
-     * @param vibrate
-     * @param lights
      */
-    public void sendSingleLineNotification(String ticker, String title, String content, PendingIntent intent, boolean sound, boolean vibrate, boolean lights) {
-        sample(ticker, title, content, intent, sound, vibrate, lights);
+    public void sendSingleLineNotification(String ticker, String title, String content, PendingIntent intent) {
+        sample(ticker, title, content, intent, false, false, false);
         Notification notification = builder.build();
         send(notification);
     }

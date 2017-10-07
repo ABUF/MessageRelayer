@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NotificationUtils utils = new NotificationUtils(MainActivity.this, 1000);
         Intent intent = new Intent(MainActivity.this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, (int) SystemClock.uptimeMillis(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        utils.sendSingleLineNotification("短信助手已启动", "短信助手", "正在运行", pendingIntent, true, true, true);
+        utils.sendSingleLineNotification("Message Relayer started", "Message Relayer", "running...", pendingIntent);
     }
 
     @Override
